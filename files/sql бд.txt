@@ -1,0 +1,132 @@
+CREATE TABLE users(
+    UserID NUMERIC(4) PRIMARY KEY,
+    User_Name VARCHAR(70) NOT NULL,
+    Email VARCHAR(40) NOT NULL UNIQUE,
+    Gender VARCHAR(1) NOT NULL,
+    CHECK (Gender IN ('м', 'ж')),
+    Height NUMERIC(3,2),
+    CHECK (Height > 0 AND Height < 2.3),
+    Weight NUMERIC(3),
+    CHECK (Weight > 0 AND Weight < 230),
+    Birth_Date DATE,
+    Health_Group NUMERIC(1)
+    CHECK (Health_Group < 5 AND Health_Group > 0),
+    Train_Level VARCHAR(20),
+    CHECK (Train_Level IN ('Начинающий', 'Продолжающий', 'Профессионал')),
+    Score NUMERIC(7) DEFAULT 0
+);
+
+CREATE TABLE inventories(
+    Inventory VARCHAR(100) PRIMARY KEY
+);
+
+CREATE TABLE users_inventories(
+    UserID NUMERIC(4)
+    REFERENCES users(UserID) ON DELETE CASCADE,
+    Inventory VARCHAR(100)
+    REFERENCES inventories(Inventory) ON DELETE CASCADE,
+    CONSTRAINT users_inventories_key PRIMARY KEY(UserID, Inventory)
+);
+
+CREATE TABLE contraindications(
+    Contraindication VARCHAR(100) PRIMARY KEY
+);
+
+CREATE TABLE users_contraindications(
+    UserID NUMERIC(4)
+    REFERENCES users(UserID) ON DELETE CASCADE,
+    Contraindication VARCHAR(100)
+    REFERENCES contraindications(Contraindication) ON DELETE CASCADE,
+    CONSTRAINT users_contraindications_key PRIMARY KEY(UserID, Contraindication)
+);
+
+CREATE TABLE exercises(
+    ExerciseID NUMERIC(4) PRIMARY KEY,
+    Ex_Name VARCHAR(60) NOT NULL,
+    GIF VARCHAR(100) NOT NULL,
+    Text_Description VARCHAR(500),
+    Train_Level VARCHAR(20),
+    CHECK (Train_Level IN ('Начинающий', 'Продолжающий', 'Профессионал')),
+    Health_Group NUMERIC(2) NOT NULL,
+    CHECK (Health_Group < 5 AND Health_Group > 0),
+    Points NUMERIC(3) NOT NULL,
+    CHECK (Points > 0 and Points <= 100)
+);
+
+CREATE TABLE exercises_inventories(
+    ExerciseID NUMERIC(4)
+    REFERENCES exercises(ExerciseID) ON DELETE CASCADE,
+    Inventory VARCHAR(100)
+    REFERENCES inventories(Inventory) ON DELETE CASCADE,
+    CONSTRAINT exercises_inventories_key PRIMARY KEY(ExerciseID, Inventory)
+);
+
+CREATE TABLE exercises_contraindications(
+    ExerciseID NUMERIC(4)
+    REFERENCES exercises(ExerciseID) ON DELETE CASCADE,
+    Contraindication VARCHAR(100)
+    REFERENCES contraindications(Contraindication) ON DELETE CASCADE,
+    CONSTRAINT exercises_contraindications_key PRIMARY KEY(ExerciseID, Contraindication)
+);
+
+CREATE TABLE workouts(
+    UserID NUMERIC(4)
+    REFERENCES users(UserID) ON DELETE CASCADE,
+    ExerciseID NUMERIC(4)
+    REFERENCES exercises(ExerciseID) ON DELETE SET NULL,
+    Done CHAR(1) NOT NULL,
+    CHECK (Done in ('д', 'н')),
+    Exe_Order NUMERIC(1) NOT NULL,
+    CHECK (Exe_Order > 0 and Exe_Order < 9),
+    Exercise_Time TIMESTAMP NOT NULL,
+    CONSTRAINT workout_key PRIMARY KEY(UserID, ExerciseID, Exercise_Time)
+); 
+
+CREATE TABLE pulses(
+    UserID NUMERIC(10)
+    REFERENCES users(UserID) ON DELETE CASCADE,
+    Pulse_Time TIMESTAMP,
+    Pulse_Before NUMERIC(3),
+    CHECK (Pulse_Before > 0 AND Pulse_Before < 300),
+    Pulse_After NUMERIC(3),
+    CHECK (Pulse_After > 0 AND Pulse_After < 300),
+    CONSTRAINT pulses_key PRIMARY KEY(UserID, Pulse_Time)
+); 
+
+CREATE TABLE trainings(
+    UserID NUMERIC(4)
+    REFERENCES users(UserID) ON DELETE CASCADE,
+    Points NUMERIC(3) NOT NULL,
+    CHECK (Points > 0 and Points <= 100),
+    Training_Time TIMESTAMP,
+    CONSTRAINT trainings_key PRIMARY KEY(UserID, Training_Time)
+);
+
+CREATE TABLE awards(
+    AwardsID NUMERIC(5) PRIMARY KEY,
+    Awards_Name VARCHAR(40) NOT NULL,
+    GIF VARCHAR(100),
+    Description VARCHAR(300),
+    Price_Award NUMERIC(4),
+    Start_Action TIMESTAMP,
+    End_Action TIMESTAMP
+);
+
+CREATE TABLE users_awards(
+    UserID NUMERIC(4)
+    REFERENCES users(UserID) ON DELETE CASCADE,
+    AwardsID NUMERIC(5)
+    REFERENCES awards(AwardsID) ON DELETE CASCADE,
+    Used VARCHAR(3) CHECK (Used IN ('Да', 'Нет'))
+);
+
+DELIMITER $$
+CREATE TRIGGER delete_from_users_inventories
+BEFORE INSERT ON users_inventories
+FOR EACH ROW 
+BEGIN
+       DELETE FROM users_inventories
+	   WHERE users_inventories.UserID IN (
+           SELECT UserID FROM inserted);
+END$$
+DELIMITER ;
