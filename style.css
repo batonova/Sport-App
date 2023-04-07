@@ -1,0 +1,243 @@
+body {					/*общий фон*/
+	margin: 0; 
+	padding: 0;
+	background-color: #F6F6F6;
+	background-image: url(http://drive.google.com/uc?export=view&id=19wQYeqY8_NCZPM0h1L2-werHjstzgomj), url(http://drive.google.com/uc?export=view&id=1OdGnQ6vewDF11KlnjdVEV3ou9O2aDXGI), url(http://drive.google.com/uc?export=view&id=1BS6vW8Z34yWCqTFyJmEZAcNklVJnMdeb), url(http://drive.google.com/uc?export=view&id=1OdGnQ6vewDF11KlnjdVEV3ou9O2aDXGI);
+	background-repeat: no-repeat;
+	background-position: 350px 550px, 1700px 155px, 1750px 195px, 1700px 235px;
+	font-family: 'calibri';
+}
+
+.left_menu{				/*фон левого меню*/
+	background: #2A3D81;
+	width: 250px;
+	height: 100vh;
+	float:left;
+	clear: left;
+	position: fixed;
+}
+
+.logo_box{
+	width: 100%;
+	height: 105px;
+	background: #132357;
+	
+}
+
+.logo_box a{
+	color: #FFFFFF;
+	font-size: 30px;
+	text-decoration:none;
+	line-height: 35px;
+}
+
+.logo_box a img{
+	margin: 15px;
+	vertical-align: middle;
+}
+.logo_box a span{
+	
+	vertical-align: middle;
+}
+
+
+
+.header{
+	width: 100%;
+	height: 105px;
+	background: #FFFFFF;
+	box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header p{
+	font-size: 36px;
+	text-align: center;
+	font-weight: bold;
+	color: #132357;
+	margin: 0px;
+	padding: 31px;
+	min-width: 300px;
+}
+
+.menu_item{
+	padding:20px 0px;
+	color: #EDF1F6;
+	font-size: 23px;
+	font-family: 'calibri';
+	line-height: 29px;
+	text-decoration:none;
+	display: block;
+}
+
+.menu_item:hover{
+	background: #132357;
+	
+}
+
+
+.menu_item img{
+	margin: 0px 15px;
+}
+
+#main{
+	/*width:100%;*/
+	height: 100%;
+	margin-left:250px;
+}
+
+.train_num p{
+	color: #000000;
+	font-size: 27px;
+	text-align: center;
+	margin-top: 50px;
+}
+
+
+.buttn{
+	text-decoration:none;
+	width: 302px;
+	height: 51px;
+	background: #EBBE30;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	margin: 40px auto;
+	padding: 10px 40px 0px;
+	text-align: center;
+	color: #2B2F3A;
+	font-size: 27px;
+	display: block;
+}
+.buttn_pulse{
+	text-decoration:none;
+	width: 300px;
+	background: #EBBE30;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	margin: 40px auto;
+	padding: 10px 0px;
+	text-align: center;
+	color: #2B2F3A;
+	font-size: 22px;
+	border: 1px solid #EBBE30;
+	display: block;
+}
+.buttn:hover, .buttn_pulse:hover{
+	background: #D4AC2E;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.for_train{
+	width:60%;
+	min-width: 300px;
+	height:auto;
+	background: #EDCF6F;
+	border-radius: 15px;
+	margin: 0px auto;
+	padding: 28px 50px;
+	font-size: 24px;
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.modal-all {
+  background: rgba(102, 102, 102, 0.5);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.modal {
+  width: 1100px;
+	height: 700px;
+	padding: 15px;
+	border-radius: 10px;
+	color: #000000;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background: #F6F6F6;
+	font-size: 20px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+input, select, button{
+	outline: none;
+}
+
+#pulse, #pulse90, #pulse150, #pulse210{
+	padding-left: 10px;
+	width: 330px;
+	height: 35px;
+	background: #EDCF6F;
+	border-radius: 15px;
+	font-size: 16px;
+	border: 1px solid #EBBE30;
+}
+
+.error{
+	color: #ff0000;
+	font-size:16px;
+	padding-right:0px;
+	visibility:hidden;
+}
+
+table{
+	font-size: 22px;
+	margin-left: 20%;
+}
+td{
+	padding-right: 140px;
+	vertical-align: top;
+	
+}
+
+td p{
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+#send1:disabled{
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+}
+#send1:disabled:hover{
+	background: #EBBE30;
+}
+
+.modal img{
+	width:600px;
+	display:block;
+	margin: 30px auto;
+}
+.modal h2{
+	text-align: center;
+}
+
+.modal p{
+	text-align: center;
+	font-size: 22px;
+}
+.modal ul{
+	margin-left: 50px;
+}
+
+.time{
+	text-decoration:none;
+	width: 300px;
+	background: #EBBE30;
+	border-radius: 15px;
+	margin: 40px auto;
+	padding: 10px 0px;
+	text-align: center;
+	color: #2B2F3A;
+	font-size: 22px;
+	border: 1px solid #EBBE30;
+	display: block;
+}
+

@@ -1,0 +1,258 @@
+body {					/*общий фон*/
+	margin: 0; 
+	padding: 0;
+	background-color: #F6F6F6; 
+	background-image: url(http://drive.google.com/uc?export=view&id=1EtQsspV2isnPO29XhpGHJK8dK_Va4_Wy), url(http://drive.google.com/uc?export=view&id=1OdGnQ6vewDF11KlnjdVEV3ou9O2aDXGI), url(http://drive.google.com/uc?export=view&id=1BS6vW8Z34yWCqTFyJmEZAcNklVJnMdeb);
+	background-repeat: no-repeat;
+	background-position: 200px 450px, 1700px 155px, 1750px 195px;
+	font-family: 'calibri';
+}
+
+.left_menu{				/*фон левого меню*/
+	background: #2A3D81;
+	width: 250px;
+	height: 100vh;
+	float:left;
+	clear: left;
+	position: fixed;
+}
+
+.logo_box{
+	width: 100%;
+	height: 105px;
+	background: #132357;
+	
+}
+
+.logo_box a{
+	color: #FFFFFF;
+	font-size: 30px;
+	text-decoration:none;
+	line-height: 35px;
+}
+
+.logo_box a img{
+	margin: 15px;
+	vertical-align: middle;
+}
+.logo_box a span{
+	
+	vertical-align: middle;
+}
+
+
+
+.header{
+	width: 100%;
+	height: 105px;
+	background: #FFFFFF;
+	box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header p{
+	font-size: 36px;
+	text-align: center;
+	font-weight: bold;
+	color: #132357;
+	margin: 0px;
+	padding: 31px;
+	min-width: 300px;
+}
+
+
+.menu_item:hover{
+	background: #132357;
+	
+}
+
+.menu_item{
+	padding:20px 0px;
+	color: #EDF1F6;
+	font-size: 23px;
+	font-family: 'calibri';
+	line-height: 29px;
+	text-decoration:none;
+	display: block;
+}
+
+.menu_item img{
+	margin: 0px 15px;
+}
+
+
+.buttn{
+	width: 300px;
+	background: #EBBE30;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	margin: 40px auto;
+	padding: 15px 0px;
+	text-align: center;
+	color: #2B2F3A;
+	font-size: 25px;
+	float:right;
+	margin-right:160px;
+	border: 1px solid #EBBE30;
+}
+
+.buttn:hover, .buttn_next:hover, .buttn_skip:hover{
+	background: #D4AC2E;
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+#main{
+	/*width:100%;*/
+	height: 100%;
+	margin-left:250px;
+}
+
+.name{
+	font-size: 27px;
+	margin-left: 145px;
+	margin-bottom: 50px;
+	margin-top:30px;	
+}
+
+.train{
+	width:65%;
+	min-width: 300px;
+	height:auto;
+	background: #EDCF6F;
+	border-radius: 15px;
+	margin: 0px auto;
+	padding: 28px 40px;
+	font-size: 22px;
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+	margin-bottom: 50px;
+}
+
+td{
+	padding: 15px 40px;
+}
+#first{
+	font-size: 24px;
+	color: #132357;
+}
+
+.dark {
+	background: rgba(102, 102, 102, 0.5);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.window {
+	width: 1100px;
+	height: 700px;
+	text-align: center;
+	padding: 15px;
+	border-radius: 10px;
+	color: #000000;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background: #F6F6F6;
+	font-size: 20px;
+	
+}
+.train_num{
+	font-size:24px;
+	margin: 40px 0px;
+}
+.img{
+	float:left;
+    margin-left: 80px;
+	width: 50%
+}
+.img img{
+	width: 100%
+}
+.text{
+	float:right;
+    margin-right: 95px;
+	width: 30%;
+}
+.dark:target {display: block;}
+
+.buttn_next{
+
+	background: #EBBE30;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	margin: 40px 85px;
+	padding: 10px 30px 10px 30px;
+	text-align: center;
+	color: #2B2F3A;
+	font-size: 24px;
+	position:absolute; 
+	right:0; 
+	bottom:0;
+	text-decoration:none;
+	border: 1px solid #EBBE30;
+}
+
+.buttn_skip{
+
+	background: #EBBE30;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	margin: 40px 85px;
+	padding: 10px 30px 10px 30px;
+	text-align: center;
+	color: #2B2F3A;
+	font-size: 24px;
+	position:absolute; 
+	left:0; 
+	bottom:0;
+	text-decoration:none;
+	border: 1px solid #EBBE30;
+}
+
+.timer{
+	width: 150px;
+	height: 40px;
+	background: #E0E9F3;
+	text-align: center;
+	font-size: 24px;
+	position:absolute; 
+	margin: 40px 85px;
+	padding-top: 10px;
+	left:0; 
+	bottom:0;
+}
+
+#end p{
+	text-align: center;
+	font-size:24px;
+	color: #304156;
+}
+
+#end_text p{
+	color: #000000;
+	text-align:left;
+	font-size:22px;
+}
+
+input, select, button{
+	outline: none;
+}
+
+.dots{
+	position: absolute;
+	bottom: 200px;
+	right: 0px;
+}
+
+.end{
+	color: #132357;
+	font-weight: 500;
+	font-size: 27px;
+}
+
+
